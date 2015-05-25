@@ -1,5 +1,7 @@
 package com.thedeveloperworldisyours.colloquialisms.activities;
 
+import android.content.Intent;
+import android.net.Uri;
 import android.support.v7.app.ActionBarActivity;
 import android.support.v7.app.ActionBar;
 import android.support.v4.app.FragmentManager;
@@ -14,6 +16,7 @@ import com.thedeveloperworldisyours.colloquialisms.fragments.NavigationDrawerFra
 import com.thedeveloperworldisyours.colloquialisms.fragments.ReviewFragment;
 import com.thedeveloperworldisyours.colloquialisms.fragments.TestOriginFragment;
 import com.thedeveloperworldisyours.colloquialisms.fragments.TestDestinationFragment;
+import com.thedeveloperworldisyours.colloquialisms.utils.Constants;
 
 public class MainActivity extends ActionBarActivity
         implements NavigationDrawerFragment.NavigationDrawerCallbacks {
@@ -28,8 +31,6 @@ public class MainActivity extends ActionBarActivity
      * Used to store the last screen title. For use in {@link #restoreActionBar()}.
      */
     private CharSequence mTitle;
-
-
 
 
     @Override
@@ -52,7 +53,7 @@ public class MainActivity extends ActionBarActivity
         // update the main content by replacing fragments
         FragmentManager fragmentManager = getSupportFragmentManager();
 
-        switch (position+1) {
+        switch (position + 1) {
             case 1:
                 fragmentManager.beginTransaction()
                         .replace(R.id.container, ListFragment.newInstance(position + 1))
@@ -61,7 +62,7 @@ public class MainActivity extends ActionBarActivity
             case 2:
                 fragmentManager.beginTransaction()
                         .replace(R.id.container, ReviewFragment.newInstance(position + 1))
-                                .commit();
+                        .commit();
                 break;
             case 3:
                 fragmentManager.beginTransaction()
@@ -76,7 +77,6 @@ public class MainActivity extends ActionBarActivity
         }
 
     }
-
 
 
     public void onSectionAttached(int number) {
@@ -123,10 +123,17 @@ public class MainActivity extends ActionBarActivity
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
-
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
+        switch (item.getItemId()) {
+            case R.id.action_about_us:
+                Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(Constants.ABOUT_US));
+                startActivity(browserIntent);
+                overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
+                break;
+            case R.id.action_our_app:
+                Intent browserIntentApps = new Intent(Intent.ACTION_VIEW, Uri.parse(Constants.OUR_APPS));
+                startActivity(browserIntentApps);
+                overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
+                break;
         }
 
         return super.onOptionsItemSelected(item);

@@ -16,4 +16,7 @@
     <string name="fragment_test_eng_solution">Solution</string>
     <string name="fragment_test_eng_hint">Enter sentence</string>
 
+    <string name="action_our_apps">Our Apps</string>
+    <string name="action_about_us">About us</string>
+
 </resources>
