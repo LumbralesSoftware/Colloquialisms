@@ -10,6 +10,7 @@ import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.AnimationUtils;
 import android.view.inputmethod.EditorInfo;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -32,7 +33,7 @@ import java.util.List;
  */
 public class TestOriginFragment extends Fragment implements TextView.OnEditorActionListener {
 
-    private TextView mSentenceENG;
+    private TextView mSentenceOrigin;
     private static List<Sentence> mSentenceList;
     private SentenceDAO mSentenceDAO;
     private int mPosition;
@@ -59,7 +60,7 @@ public class TestOriginFragment extends Fragment implements TextView.OnEditorAct
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View  view = inflater.inflate(R.layout.fragment_test_origin, container, false);
-        mSentenceENG = (TextView) view.findViewById(R.id.fragment_test_origin_textView);
+        mSentenceOrigin = (TextView) view.findViewById(R.id.fragment_test_origin_textView);
         EditText editText = (EditText) view.findViewById(R.id.fragment_test_origin_editText);
         editText.setImeOptions(EditorInfo.IME_ACTION_DONE);
         editText.setOnEditorActionListener(this);
@@ -79,7 +80,9 @@ public class TestOriginFragment extends Fragment implements TextView.OnEditorAct
     public void showSentence(){
         mPosition = Utils.randInt(0, mSentenceList.size() - 1);
         String examp = mSentenceList.get(mPosition).getSentenceOrigin().toString();
-        mSentenceENG.setText(examp);
+        mSentenceOrigin.startAnimation(AnimationUtils.loadAnimation(
+                getActivity(), R.anim.enter));
+        mSentenceOrigin.setText(examp);
     }
 
 
