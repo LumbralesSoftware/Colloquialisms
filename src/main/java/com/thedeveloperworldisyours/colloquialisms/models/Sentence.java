@@ -1,9 +1,5 @@
 package com.thedeveloperworldisyours.colloquialisms.models;
 
-import android.os.Parcel;
-import android.os.Parcelable;
-
-import java.io.Serializable;
 
 import garin.artemiy.sqlitesimple.library.annotations.Column;
 
@@ -13,8 +9,8 @@ import garin.artemiy.sqlitesimple.library.annotations.Column;
 public class Sentence {
 
     public transient static final String COLUMN_ID = "_id";
-    public transient static final String COLUMN_SENTENCE_ORIGIN = "sentenceENG";
-    public transient static final String COLUMN_SENTENCE_DESTINATION = "sentenceES";
+    public transient static final String COLUMN_SENTENCE_ORIGIN = "sentence_origin";
+    public transient static final String COLUMN_SENTENCE_DESTINATION = "sentence_destination";
     public transient static final String COLUMN_LANGUAGE = "language";
 
     @Column(name = COLUMN_ID, isPrimaryKey = true)

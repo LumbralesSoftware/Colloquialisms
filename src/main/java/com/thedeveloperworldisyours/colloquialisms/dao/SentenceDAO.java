@@ -7,7 +7,6 @@ import com.thedeveloperworldisyours.colloquialisms.utils.Constants;
 
 import garin.artemiy.sqlitesimple.library.SQLiteSimpleDAO;
 
-
 /**
  * Created by javiergonzalezcabezas on 23/5/15.
  */
