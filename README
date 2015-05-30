@@ -1,7 +1,6 @@
 # About
-    Colloquial expresions made easy. This projet is an android application that helps to learn and remember colloquialisms in other languages.
-    It currently has a database of english-spanish/spanish-english idioms, but everyone can add new sentences and or languages through the app.
-
+  Colloquial expressions made easy. This project is an android application that helps to learn and remember colloquialisms in other languages. 
+  It currently has a database with a load of english-spanish/spanish-english idioms, but everyone can add new sentences and or languages through the app.
 # Requirements
 
     - Android Studio
