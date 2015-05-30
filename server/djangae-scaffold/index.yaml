@@ -68,3 +68,11 @@ indexes:
   properties:
   - name: app
   - name: name
+
+- kind: colloquialisms_sentence
+  properties:
+  - name: active
+  - name: language_destination
+  - name: language_origin
+  - name: created
+    direction: desc
